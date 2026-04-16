@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: master-app
+  namespace: argocd
+spec:
+  project: argocd-project
+  source: 
+    repoURL: 
+    targetRevision: main
+    path: app-of-apps
+  destination: 
+    server:
+    namespace: argocd
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true  
