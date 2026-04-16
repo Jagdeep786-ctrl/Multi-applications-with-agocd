@@ -8,10 +8,10 @@ spec:
   source: 
     repoURL: https://github.com/Jagdeep786-ctrl/Multi-applications-with-agocd.git
     targetRevision: main
-    path: crop_dashboard_EKS
+    path: k8s-kind-voting-app/manifests.yaml
   destination: 
     server:
-    namespace: stock
+    namespace: default
   syncPolicy:
     automated:
       prune: true
