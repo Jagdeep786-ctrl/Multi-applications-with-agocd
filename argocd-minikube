@@ -14,13 +14,24 @@ kubectl get secret argocd-initial-admin-secret -n argocd -o jsonpath="{.data.pas
 Invoke-WebRequest -Uri "https://github.com/argoproj/argo-cd/releases/latest/download/argocd-windows-amd64.exe" -OutFile ".\argocd.exe"
 
 
+kubectl apply -f declarative-approach.yaml -n argocd
+kubectl get applications -n argocd
+kubectl get appproject -n argocd
+.\argocd proj list   ( you can all projects in argocd) 
+
+
+kubectl delete appproject argocd-project -n argocd    # ehde ton delete hunda project
+
+ kubectl describe application master-app -n argocd       #application jehdi bnai ohnu describe kita
+
+
+ kubectl delete all --all --all-namespaces
+
+
 
 
 je error ayaa application set pod ch tan 
  kubectl create -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/crds/applicationset-crd.yaml
   kubectl delete pod -n argocd -l app.kubernetes.io/name=argocd-applicationset-controller
    kubectl get pods -n argocd
-    kubectl get applications -n argocd
-
-     kubectl get appproject -n argocd
-argocd proj list   ( you can all projects in argocd) 
+  
