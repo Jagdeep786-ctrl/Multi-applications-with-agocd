@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: master-app
+  name: crop-dashboard
   namespace: argocd
 spec:
   project: argocd-project
