@@ -10,7 +10,7 @@ spec:
     targetRevision: main
     path: k8s-kind-voting-app/manifests.yaml
   destination: 
-    server:
+    server: https://kubernetes.default.svc
     namespace: default
   syncPolicy:
     automated:

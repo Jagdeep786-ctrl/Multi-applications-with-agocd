@@ -10,7 +10,7 @@ spec:
     targetRevision: main
     path: crop_dashboard_EKS
   destination: 
-    server:
+    server: https://kubernetes.default.svc
     namespace: stock
   syncPolicy:
     automated:
