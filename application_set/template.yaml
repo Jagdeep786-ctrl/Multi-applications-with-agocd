@@ -1,0 +1,33 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: application-demo
+  namespace: argocd
+spec: 
+  generators: 
+    - list: 
+        elements:
+          - app: crop-dashboard
+            path: crop_dashboard_EKS
+            namespace: stock
+          - app: vote
+            path: k8s-kind-voting-app/manifests.yaml
+            namespace: default
+  template:
+    metadata:
+      name: '{{app}}-list'
+    spec: 
+      project: argocd-project
+      source: 
+        repoURL: https://github.com/Jagdeep786-ctrl/Multi-applications-with-agocd.git
+        targetRevision: main
+        path: '{{path}}'
+      destination:
+        server: https://kubernetes.default.svc
+        namespace: '{{namespace}}'
+      syncPolicy: 
+        automated:
+         prune: true
+         selfHeal: true
+        syncOptions:
+        - CreateNamespace=true
