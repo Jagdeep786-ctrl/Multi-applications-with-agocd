@@ -1,20 +1,20 @@
-apiVersion: argoproj.io/v1alpha1
-kind: Application
-metadata:
-  name: crop-dashboard
-  namespace: argocd
-spec:
-  project: argocd-project
-  source: 
-    repoURL: https://github.com/Jagdeep786-ctrl/Multi-applications-with-agocd.git
-    targetRevision: main
-    path: crop_dashboard_EKS
-  destination: 
-    server: https://kubernetes.default.svc
-    namespace: stock
-  syncPolicy:
-    automated:
-      prune: true
-      selfHeal: true
-    syncOptions:
-      - CreateNamespace=true  
+# apiVersion: argoproj.io/v1alpha1
+# kind: Application
+# metadata:
+#   name: crop-dashboard
+#   namespace: argocd
+# spec:
+#   project: argocd-project
+#   source: 
+#     repoURL: https://github.com/Jagdeep786-ctrl/Multi-applications-with-agocd.git
+#     targetRevision: main
+#     path: crop_dashboard_EKS
+#   destination: 
+#     server: https://kubernetes.default.svc
+#     namespace: stock
+#   syncPolicy:
+#     automated:
+#       prune: true
+#       selfHeal: true
+#     syncOptions:
+#       - CreateNamespace=true  
